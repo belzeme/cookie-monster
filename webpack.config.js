@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
+const jsonLoader = require('json-loader');
 
 module.exports = {
     entry: ['./src/main.ts'],
@@ -18,6 +19,11 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.json$/,
+                use: 'json-loader',
+                exclude: /node_modules/ 
             }
         ]
     },
